@@ -46,7 +46,7 @@ function App() {
             }
           />
           <Route
-            path="/home"
+            path="/"
             element={
               <ProtectedRoute>
                 <HomePage />
@@ -72,7 +72,7 @@ function App() {
 />
 
           {/* Default redirect only if path not found */}
-          <Route path="*" element={<Navigate to="/home" />} />
+          <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </Router>
     </AuthProvider>
