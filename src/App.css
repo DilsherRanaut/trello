@@ -28,6 +28,12 @@
   margin: 0 auto;
 }
 
+.menu-bar {
+    display: inline-flex;
+    gap: 5px;
+    position: relative;
+}
+
 .board-input {
   padding: 5px 5px 5px 10px;
   border-radius: 5px;
@@ -64,20 +70,54 @@ button.cancel-board {
   cursor: pointer;
   transition: border-color 0.25s;
 }
+.profilename {
+    background: #9386ff2b;
+    padding: 8px 10px;
+    border-radius: 100%;
+    font-weight: 500;
+    width: 22px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.profile-menu {
+    position: absolute;
+    right: 0;
+    top: 120%;
+    background: #33363a;
+    padding: 20px 15px;
+    border-radius: 10px;
+    width: 200px;
+}
+.profile-menu-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+.profile-menu-item img {
+    width: 100%;
+    max-width: 26px;
+}
+.profile-menu hr {
+    margin: 15px 0;
+    border-color: #52536885;
+    border-width: 1px;
+    border-style: solid;
+}
 
 
-
-
-.login-page, .register-page {
+.login-page, .register-page, .profile-page {
     height: 100vh;
 }
-.login-page-outter, .register-page-outter {
+.login-page-outter, .register-page-outter, .profile-page-outter {
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.login-page-inner, .register-page-inner {
+.login-page-inner, .register-page-inner, .profile-page-inner {
     width: 100%;
     max-width: 300px;
     background: #ffffff05;
@@ -85,7 +125,7 @@ button.cancel-board {
     margin: auto auto;
     border-radius: 10px;
 }
-.login-page-inner input, .register-page-inner input {
+.login-page-inner input, .register-page-inner input, .profile-page-inner input {
     width: -webkit-fill-available;
     padding: 15px;
     margin-bottom: 10px;
@@ -93,6 +133,20 @@ button.cancel-board {
     border-radius: 5px;
 }
 
-.login-page-inner p, .register-page-inner p {
+.login-page-inner p, .register-page-inner p, .profile-page-inner p {
   margin: 10px 0; 
+}
+
+.delete-board {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  display: none;
+  cursor: pointer;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.board-card:hover .delete-board {
+  display: block;
+  opacity: 1;
 }

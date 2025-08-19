@@ -15,7 +15,9 @@ export function AuthProvider({ children }) {
 
   const login = (email, password) => {
     const users = JSON.parse(localStorage.getItem("users")) || [];
-    const user = users.find((u) => u.email === email && u.password === password);
+    const user = users.find(
+      (u) => u.email === email && u.password === password
+    );
     if (user) {
       localStorage.setItem("currentUser", JSON.stringify(user));
       setCurrentUser(user);
@@ -24,19 +26,23 @@ export function AuthProvider({ children }) {
     return false;
   };
 
- const register = (name, email, password) => {
-  const users = JSON.parse(localStorage.getItem("users")) || [];
-  const userExists = users.some((u) => u.email === email);
+  const register = (fname, lname, email, password) => {
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+    const userExists = users.some((u) => u.email === email);
 
-  if (userExists) return false;
+    if (userExists) return false;
 
-  const newUser = { name, email, password };
-  users.push(newUser);
-  localStorage.setItem("users", JSON.stringify(users));
+    const newUser = { fname, lname, email, password };
+    users.push(newUser);
+    localStorage.setItem("users", JSON.stringify(users));
 
-  return true;
-};
+    return true;
+  };
 
+  const updateProfile = (updatedUser) => {
+    setCurrentUser(updatedUser);
+    localStorage.setItem("currentUser", JSON.stringify(updatedUser));
+  };
 
   const logout = () => {
     localStorage.removeItem("currentUser");
@@ -44,7 +50,9 @@ export function AuthProvider({ children }) {
   };
 
   return (
-    <AuthContext.Provider value={{ currentUser, login, register, logout }}>
+    <AuthContext.Provider
+      value={{ currentUser, register, login, logout, updateProfile }}
+    >
       {children}
     </AuthContext.Provider>
   );

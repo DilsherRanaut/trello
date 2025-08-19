@@ -3,7 +3,8 @@ import { useNavigate, Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 
 export default function RegisterPage() {
-  const [name, setName] = useState("");
+  const [fname, setFname] = useState("");
+  const [lname, setLname] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -12,7 +13,7 @@ export default function RegisterPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const success = register(name, email, password);
+    const success = register(fname, lname, email, password);
     if (success) {
       navigate("/login");
     } else {
@@ -30,9 +31,17 @@ export default function RegisterPage() {
             <form onSubmit={handleSubmit}>
               <input
                 type="text"
-                placeholder="Name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
+                placeholder="First Name"
+                value={fname}
+                onChange={(e) => setFname(e.target.value)}
+                required
+              />
+              <br />
+              <input
+                type="text"
+                placeholder="Last Name"
+                value={lname}
+                onChange={(e) => setLname(e.target.value)}
                 required
               />
               <br />
