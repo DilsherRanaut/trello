@@ -39,11 +39,23 @@ export function AuthProvider({ children }) {
     return true;
   };
 
-  const updateProfile = (updatedUser) => {
-    setCurrentUser(updatedUser);
-    localStorage.setItem("currentUser", JSON.stringify(updatedUser));
-    // localStorage.setItem("users", JSON.stringify(updatedUser));  // need to fix this. it will update only specific user data.
-  };
+ const updateProfile = (updatedUser) => {
+  // Update current user state
+  setCurrentUser(updatedUser);
+  localStorage.setItem("currentUser", JSON.stringify(updatedUser));
+
+  // Get existing users from localStorage
+  let users = JSON.parse(localStorage.getItem("users")) || [];
+
+  // Update the specific user in the array
+  users = users.map((user) =>
+    user.id === updatedUser.id ? updatedUser : user
+  );
+
+  // Save updated array back to localStorage
+  localStorage.setItem("users", JSON.stringify(users));
+};
+
 
   const logout = () => {
     localStorage.removeItem("currentUser");

@@ -23,9 +23,10 @@
 }
 
 .container {
-  width: 100%;
-  max-width: 1400px;
-  margin: 0 auto;
+    width: calc(100% - 40px);
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 10px 20px;
 }
 
 .menu-bar {
@@ -84,30 +85,32 @@ button.cancel-board {
 }
 
 .profile-menu {
-  position: absolute;
-  right: 0;
-  top: 120%;
-  background: #33363a;
-  padding: 20px 15px;
-  border-radius: 10px;
-  width: 200px;
-  z-index: 99;
+    position: absolute;
+    right: 0;
+    top: 120%;
+    background: #33363a;
+    border-radius: 10px;
+    width: 240px;
+    z-index: 99;
+    padding: 10px 0;
 }
 
 .profile-menu-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 0;    
+    padding: 10px 20px;
 }
-
+.profile-menu-item:hover{
+  background: #393b3f;
+}
 .profile-menu-item img {
   width: 100%;
-  max-width: 26px;
+  max-width: 22px;
 }
 
 .profile-menu hr {
-  margin: 15px 0;
   border-color: #52536885;
   border-width: 1px;
   border-style: solid;
@@ -196,7 +199,7 @@ button.cancel-board {
     overflow-x: auto;
     padding: 2rem 0;
     border-radius: 10px;
-    height: 70vh;
+    height: 60vh;
 }
 .card {
     min-width: 370px;

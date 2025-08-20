@@ -2,11 +2,9 @@ import { useAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
-export default function Navbar({ onCreateBoard, fname, lname }) {
-  const { logout } = useAuth();
+export default function GlobalNavbar({ fname, lname }) {
+ const { logout } = useAuth();
   const navigate = useNavigate();
-  const [newBoardTitle, setNewBoardTitle] = useState("");
-  const [showForm, setShowForm] = useState(false);
   const [showProfileMenu, setShowProfileMenu] = useState(false);
   const profileName = fname[0] + lname[0];
 
@@ -15,14 +13,7 @@ export default function Navbar({ onCreateBoard, fname, lname }) {
     navigate("/login");
   };
 
-  const handleCreateBoard = (e) => {
-    e.preventDefault();
-    if (!newBoardTitle.trim()) return;
-
-    onCreateBoard(newBoardTitle);
-    setNewBoardTitle("");
-    setShowForm(false);
-  };
+ 
 
   const handleProfileMenu = () => {
     setShowProfileMenu((prev) => !prev); // toggle
@@ -56,33 +47,6 @@ export default function Navbar({ onCreateBoard, fname, lname }) {
           </h2>
 
           <div className="menu-bar">
-            {showForm ? (
-              <form
-                onSubmit={handleCreateBoard}
-                style={{ display: "inline-flex", gap: "5px" }}
-              >
-                <input
-                  type="text"
-                  placeholder="Board name"
-                  value={newBoardTitle}
-                  onChange={(e) => setNewBoardTitle(e.target.value)}
-                  required
-                  className="board-input"
-                />
-                <button className="add-board" type="submit">
-                  Add
-                </button>
-                <button
-                  className="cancel-board"
-                  type="button"
-                  onClick={() => setShowForm(false)}
-                >
-                  Cancel
-                </button>
-              </form>
-            ) : (
-              <button onClick={() => setShowForm(true)}>+ Create Board</button>
-            )}
 
             <span
               className="profilename"
