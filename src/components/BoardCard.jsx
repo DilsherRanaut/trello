@@ -5,18 +5,6 @@ export default function BoardCard({ board, onOpen, onDelete }) {
     <div
       className="relative board-card group"
       onClick={onOpen}
-      style={{
-        border: "1px solid #ccc",
-        padding: "20px",
-        margin: "10px",
-        borderRadius: "8px",
-        cursor: "pointer",
-        minWidth: "150px",
-        textAlign: "center",
-        background: "#f8f9fa",
-        color: "#000",
-        position: "relative",
-      }}
     >
       <h3>{board.title}</h3>
 

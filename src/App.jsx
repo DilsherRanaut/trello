@@ -63,13 +63,13 @@ function App() {
           />
 
           <Route
-  path="/board/:id"
-  element={
-    <ProtectedRoute>
-      <BoardPage />
-    </ProtectedRoute>
-  }
-/>
+            path="/board/:id"
+            element={
+              <ProtectedRoute>
+                <BoardPage />
+              </ProtectedRoute>
+            }
+          />
 
           {/* Default redirect only if path not found */}
           <Route path="*" element={<Navigate to="/" />} />

@@ -27,6 +27,7 @@ export default function HomePage() {
       id: Date.now().toString(),
       title,
       owner: currentUser.email,
+      ownername: currentUser.fname +" "+ currentUser.lname,
       cards: [],
     };
 

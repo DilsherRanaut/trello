@@ -26,7 +26,7 @@ export default function ProfilePage() {
     const updatedUser = { fname, lname, email, password };
     updateProfile(updatedUser);
     alert("Profile updated successfully!");
-    navigate("/home");
+    navigate("/");
   };
 
   if (!currentUser) {
